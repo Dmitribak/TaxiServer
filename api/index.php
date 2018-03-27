@@ -17,3 +17,5 @@ if (count($_REQUEST)>0) {
     $jsonError->error='No function called';
     echo json_encode($jsonError);
 }
+
+// ПРИМЕР: HTTP://название сервера/api/название контроллера/название метода/параметры

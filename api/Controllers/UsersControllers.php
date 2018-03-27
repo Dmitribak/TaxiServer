@@ -3,12 +3,39 @@
 
 class Users
 {
+    public $DataBase = null;
+
     //http://www.example.com/api/?apitest.helloAPI={}
-    function helloAPI()
+    function helloApiGet($param = null)
     {
-        $retJSON = $this->createDefaultJson();
-        $retJSON->withoutParams = 'It\'s method called without parameters';
-        return $retJSON;
+        echo $param;
+    }
+
+
+    function registrationPhoneGet($param = null){
+        if ($param)
+        {
+            $DB = new DataBase();
+            $DB->insertWhat($param, users);
+
+
+        }
+//        else echo "Без параметров";
+//
+//        $stolbec = null;
+//        $stolb_value = null;
+//        foreach ($param as $key => $value){
+//            $stolbec = $stolbec.', :'.$key;
+//            $stolb_value = $stolb_value.', '.$value;
+//        }
+//        $stolbec = substr($stolbec,1);
+//        $stolb_value = substr($stolb_value, 1);
+//        echo '<br>';
+//        echo $stolbec;
+//        echo '<br>';
+//        echo $stolb_value;
+
+
     }
 
     //http://www.example.com/api/?apitest.helloAPIWithParams={"TestParamOne":"Text of first parameter"}
@@ -29,5 +56,12 @@ class Users
     {
         header('Content-type: image/png');
         echo file_get_contents("http://habrahabr.ru/i/error-404-monster.jpg");
+    }
+
+    //Получить список всех пользователей
+    function usersGet($param = null){
+        echo 'Heello<br>';
+        $db = new DataBase();
+
     }
 }

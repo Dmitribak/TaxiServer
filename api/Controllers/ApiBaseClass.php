@@ -13,7 +13,8 @@ class ApiBaseClass
     //Конструктор с возможными параметрами
     function __construct($dbName=null,$dbHost=null,$dbUser=null,$dbPassword=null) {
         if (isset($dbName)){//Если имя базы передано то будет установленно соединение с базой
-            $this->mySQLWorker = MySQLiWorker::getInstance($dbName,$dbHost,$dbUser,$dbPassword);
+            $this->mySQLWorker = DataBase::getInstance($dbName,$dbHost,$dbUser,$dbPassword);
+            echo "Construct";
         }
     }
 
